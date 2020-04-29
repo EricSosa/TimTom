@@ -35,7 +35,6 @@ public class HabitsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_habits);
 
-        //load medList with function created bellow
         loadData();
         buildRecyclerView();
 

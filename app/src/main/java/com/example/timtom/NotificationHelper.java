@@ -11,7 +11,7 @@ import androidx.core.app.NotificationCompat;
 
 public class NotificationHelper extends ContextWrapper {
     public static final String channelID = "channelID";
-    public static final String channelName = "Medications";
+    public static final String channelName = "Habits";
 
     private NotificationManager mManager;
 

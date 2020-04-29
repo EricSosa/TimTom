@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class NewHabitActivity extends AppCompatActivity {
-    ArrayList<habit> medList;
+    ArrayList<habit> habitList;
     ArrayList<Calendar> calendarTimes = new ArrayList<>();;
     private String name;
     private String times;
@@ -32,7 +32,7 @@ public class NewHabitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newhabit);
-        //load medList with function created bellow
+
         loadData();
 
         //buttonDone should add the new habit and save ArrayList
@@ -48,7 +48,7 @@ public class NewHabitActivity extends AppCompatActivity {
 
                 Random randi = new Random();
                 int rand = randi.nextInt(99999999);
-                medList.add( new habit(name, times, rand, calendarTimes));
+                habitList.add( new habit(name, times, rand, calendarTimes));
                 saveData();
                 openHome();
             }
@@ -98,7 +98,7 @@ public class NewHabitActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
-        String json = gson.toJson(medList);
+        String json = gson.toJson(habitList);
         editor.putString("task list", json);
         editor.apply();
     }
@@ -108,9 +108,9 @@ public class NewHabitActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String json = sharedPreferences.getString("task list", null);
         Type type = new TypeToken<ArrayList<habit>>() {}.getType();
-        medList = gson.fromJson(json, type);
-        if (medList == null) {
-            medList = new ArrayList<>();
+        habitList = gson.fromJson(json, type);
+        if (habitList == null) {
+            habitList = new ArrayList<>();
         }
     }
     public void openHome(){
