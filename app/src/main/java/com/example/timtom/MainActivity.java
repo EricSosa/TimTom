@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private int progressStatus = 0;
     private Button buttonNew;
     private Button buttonHabs;
-    ArrayList<habit> medList;
+    ArrayList<habit> habitList;
 
 
     @Override
@@ -99,10 +99,10 @@ public class MainActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String json = sharedPreferences.getString("task list", null);
         Type type = new TypeToken<ArrayList<habit>>() {}.getType();
-        medList = gson.fromJson(json, type);
+        habitList = gson.fromJson(json, type);
 
-        if (medList == null) {
-            medList = new ArrayList<>();
+        if (habitList == null) {
+            habitList = new ArrayList<>();
         }
     }
 }

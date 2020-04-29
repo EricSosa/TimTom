@@ -40,7 +40,7 @@ public class NotificationHelper extends ContextWrapper {
     public NotificationCompat.Builder getChannelNotification() {
         return new NotificationCompat.Builder(getApplicationContext(), channelID)
                 .setContentTitle("!!!")
-                .setContentText("Time to take your medication.")
+                .setContentText("Time to Habit.")
                 .setSmallIcon(R.drawable.ic_alarm_on);
     }
 }

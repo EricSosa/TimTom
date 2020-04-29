@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
+//import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,7 +28,7 @@ public class HabitsActivity extends AppCompatActivity {
     private RecyclerView myRecycler;
     private RecyclerAdapter myAdapter;
     private RecyclerView.LayoutManager myLayoutManager;
-    ArrayList<habit> medList;
+    ArrayList<habit> habitList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class HabitsActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
-        String json = gson.toJson(medList);
+        String json = gson.toJson(habitList);
         editor.putString("task list", json);
         editor.apply();
     }
@@ -63,9 +63,9 @@ public class HabitsActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String json = sharedPreferences.getString("task list", null);
         Type type = new TypeToken<ArrayList<habit>>() {}.getType();
-        medList = gson.fromJson(json, type);
-        if (medList == null) {
-            medList = new ArrayList<>();
+        habitList = gson.fromJson(json, type);
+        if (habitList == null) {
+            habitList = new ArrayList<>();
         }
     }
     public void openHome(){
@@ -77,8 +77,7 @@ public class HabitsActivity extends AppCompatActivity {
         myRecycler = findViewById(R.id.recyclerView);
         myRecycler.setHasFixedSize(true);
         myLayoutManager = new LinearLayoutManager(this);
-        myAdapter = new RecyclerAdapter(medList);
-
+        myAdapter = new RecyclerAdapter(habitList);
 
         myRecycler.setLayoutManager(myLayoutManager);
         myRecycler.setAdapter(myAdapter);
@@ -87,7 +86,7 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onDeleteClick(int position) {
                 //remove alarms first
-                habit currentItem = medList.get(position);
+                habit currentItem = habitList.get(position);
                 ArrayList<Calendar> calendarTimes = currentItem.calendarTimes;
                 int rand = currentItem.rand;
                 for (int i = 0; i < calendarTimes.size(); i++) {
@@ -95,15 +94,15 @@ public class HabitsActivity extends AppCompatActivity {
                 }
 
                 //remove habit from list
-                medList.remove(position);
+                habitList.remove(position);
                 myAdapter.notifyItemRemoved(position);
                 Toast.makeText(getApplicationContext(),"Removed", Toast.LENGTH_SHORT).show();
             }
 
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            //@RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onAlarm_OnClick(int position) {
-                habit currentItem = medList.get(position);
+                habit currentItem = habitList.get(position);
                 ArrayList<Calendar> calendarTimes = currentItem.calendarTimes;
                 int rand = currentItem.rand;
                 Toast.makeText(getApplicationContext(),"Alarm On", Toast.LENGTH_SHORT).show();
@@ -116,7 +115,7 @@ public class HabitsActivity extends AppCompatActivity {
 
             @Override
             public void onAlarm_offClick(int position) {
-                habit currentItem = medList.get(position);
+                habit currentItem = habitList.get(position);
                 ArrayList<Calendar> calendarTimes = currentItem.calendarTimes;
                 int rand = currentItem.rand;
                 Toast.makeText(getApplicationContext(),"Alarm Off", Toast.LENGTH_SHORT).show();
@@ -128,7 +127,7 @@ public class HabitsActivity extends AppCompatActivity {
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    //@RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void startAlarm(Calendar c, int rand, int i) {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlertReceiver.class);

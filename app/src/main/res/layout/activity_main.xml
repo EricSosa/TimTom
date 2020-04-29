@@ -18,7 +18,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
 
     <TextView
         android:id="@+id/date"
@@ -30,10 +31,8 @@
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="@+id/circulo"
         app:layout_constraintEnd_toEndOf="@+id/circulo"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/circulo"
-        app:layout_constraintTop_toTopOf="@+id/circulo"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="@+id/circulo" />
 
     <Button
         android:id="@+id/buttHabits"
@@ -42,7 +41,7 @@
         android:layout_marginStart="14dp"
         android:layout_marginLeft="14dp"
         android:layout_marginBottom="14dp"
-        android:text="Button"
+        android:text="My Habits"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -53,7 +52,7 @@
         android:layout_marginEnd="14dp"
         android:layout_marginRight="14dp"
         android:layout_marginBottom="14dp"
-        android:text="Button"
+        android:text="New Habit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

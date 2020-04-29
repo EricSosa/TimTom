@@ -6,14 +6,14 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="3dip"
     android:layout_marginBottom="3dip"
-    app:cardBackgroundColor="#660096E1"
+    app:cardBackgroundColor="#CC6200EE"
     app:cardCornerRadius="7dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="4dp"
-        android:background="#800064DC">
+        android:background="#E064DCB4">
 
         <ImageView
             android:id="@+id/imageRec"

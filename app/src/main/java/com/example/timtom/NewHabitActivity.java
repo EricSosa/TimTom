@@ -26,8 +26,6 @@ public class NewHabitActivity extends AppCompatActivity {
     ArrayList<Calendar> calendarTimes = new ArrayList<>();;
     private String name;
     private String times;
-    private int dosage;
-    private int period;
 
 
     @Override
@@ -48,22 +46,9 @@ public class NewHabitActivity extends AppCompatActivity {
                 TextView et2 = findViewById(R.id.time_display);
                 times = et2.getText().toString();
 
-                EditText et3 = findViewById(R.id.editDosage);
-                //check for integers or it crashes
-                try {
-                    dosage = Integer.parseInt(et3.getEditableText().toString());
-                } catch (NumberFormatException e) {
-                    dosage = 0;
-                }
-                EditText et4 = findViewById(R.id.editPeriod);
-                try {
-                    period = Integer.parseInt(et4.getEditableText().toString());
-                } catch (NumberFormatException e) {
-                    period = 0;
-                }
                 Random randi = new Random();
                 int rand = randi.nextInt(99999999);
-                medList.add( new habit(name, times, dosage, period, rand, calendarTimes));
+                medList.add( new habit(name, times, rand, calendarTimes));
                 saveData();
                 openHome();
             }
