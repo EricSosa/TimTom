@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -22,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private int progressStatus = 0;
-    private Button button1;
-    private Button button2;
+    private Button buttonNew;
+    private Button buttonHabs;
     ArrayList<habit> medList;
 
 
@@ -35,16 +34,16 @@ public class MainActivity extends AppCompatActivity {
         //load medList with function created bellow
         loadData();
 
-        button1 = findViewById(R.id.buttonNewHabit);
-        button1.setOnClickListener(new View.OnClickListener() {
+        buttonNew = findViewById(R.id.buttNewHabit);
+        buttonNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openNewHabitForm();
             }
         });
 
-        button2 = findViewById(R.id.buttonHabits);
-        button2.setOnClickListener(new View.OnClickListener() {
+        buttonHabs = findViewById(R.id.buttHabits);
+        buttonHabs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openHabits();
