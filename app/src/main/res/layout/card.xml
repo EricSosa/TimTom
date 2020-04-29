@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dip"
+    android:layout_marginBottom="3dip"
+    app:cardBackgroundColor="#660096E1"
+    app:cardCornerRadius="7dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        android:background="#800064DC">
+
+        <ImageView
+            android:id="@+id/imageRec"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="5dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            tools:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/habitView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageRec"
+            android:layout_toRightOf="@+id/imageRec"
+            android:text="line1"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/timesView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/habitView"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="27dp"
+            android:layout_toEndOf="@+id/imageRec"
+            android:layout_toRightOf="@+id/imageRec"
+            android:text="line2"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+        <ImageView
+            android:id="@+id/image_delete"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_delete" />
+
+        <ImageView
+            android:id="@+id/alarm_on"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/alarm_off"
+            android:layout_toLeftOf="@+id/alarm_off"
+            android:src="@drawable/ic_alarm_on" />
+
+        <ImageView
+            android:id="@+id/alarm_off"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/image_delete"
+            android:layout_toLeftOf="@+id/image_delete"
+            android:src="@drawable/ic_alarm_off" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
