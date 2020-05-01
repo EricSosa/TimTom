@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="4dp"
-        android:background="#E064DCB4">
+        android:background="#E06EF0C8">
 
         <ImageView
             android:id="@+id/imageRec"
